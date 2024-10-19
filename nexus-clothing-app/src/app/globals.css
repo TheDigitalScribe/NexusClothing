@@ -32,11 +32,13 @@ body {
   color: var(--text-color-dark);
 }
 
-.light-theme a:hover {
+.light-theme a:hover,
+.light-theme button:hover {
   color: var(--hover-text-color-light);
 }
 
-.dark-theme a:hover {
+.dark-theme a:hover,
+.dark-theme button:hover {
   color: var(--hover-text-color-dark);
 }
 

@@ -22,17 +22,19 @@ const NavBar: React.FC = () => {
 
         {/* Navigation Links - hidden on mobile */}
         <div className="hidden md:flex space-x-8 justify-center flex-grow">
-          <Link href="/" className="transition-all duration-200">HOME</Link>
-          <Link href="/about" className="transition-all duration-200">ABOUT</Link>
-          <Link href="/products" className="transition-all duration-200">PRODUCTS</Link>
+          <Link href="/" className="transition-all duration-500">HOME</Link>
+          <Link href="/about" className="transition-all duration-500">ABOUT</Link>
+          <Link href="/products" className="transition-all duration-500">PRODUCTS</Link>
         </div>
 
-        <MobileMenuToggle />
-        <div>
+        <div className="mt-1">
+          <MobileMenuToggle />
+        </div>
+        <div className="hidden md:flex">
           <ThemeToggle />
         </div>
       </div>
-    </nav>
+    </nav >
   )
 }
 
