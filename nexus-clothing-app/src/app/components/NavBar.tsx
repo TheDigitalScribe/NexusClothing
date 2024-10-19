@@ -1,18 +1,17 @@
 'use client'
 
 import Link from 'next/link';
-import MobileMenuToggle from './MobileMenuToggle';
-import ThemeToggle from './ThemeToggle';
+import { MobileMenuToggle } from './MobileMenuToggle';
+import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeContext';
-import { themes } from '../themes';
 
 const NavBar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const currentTheme = themes[theme];
 
   return (
     <nav className="py-4 px-6 md:px-16 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
+
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
@@ -27,9 +26,12 @@ const NavBar: React.FC = () => {
           <Link href="/products" className="transition-all duration-500">PRODUCTS</Link>
         </div>
 
-        <div className="mt-1">
+        {/* Hamburger Menu */}
+        <div>
           <MobileMenuToggle />
         </div>
+
+        {/* Light/dark theme toggle */}
         <div className="hidden md:flex">
           <ThemeToggle />
         </div>

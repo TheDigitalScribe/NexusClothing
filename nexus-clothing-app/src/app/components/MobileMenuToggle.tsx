@@ -1,21 +1,19 @@
-// Required for marking component as Client Component in Next.js
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import ThemeToggle from './ThemeToggle';
+import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from './ThemeContext';
+import { Bars3Icon } from '@heroicons/react/24/solid';
 
-const MobileMenuToggle = () => {
+export const MobileMenuToggle: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="md:hidden">
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="transition-all duration-500 focus:outline-none" aria-expanded={isMenuOpen}
-        aria-label="Toggle mobile menu">
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-
+      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="transition-all duration-500 focus:outline-none" aria-expanded={isMenuOpen} aria-label="Toggle mobile menu">
+        <Bars3Icon className={`w-6 h-6 ${theme == "dark" ? "text-white" : "text-black"}`}></Bars3Icon>
       </button>
 
       {isMenuOpen && (
@@ -33,5 +31,3 @@ const MobileMenuToggle = () => {
     </div>
   )
 }
-
-export default MobileMenuToggle
