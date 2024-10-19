@@ -3,23 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --bg-color-light: #EFEFEF;
+  --bg-color-light: #DCDCDC;
   --text-color-light: #000;
   --hover-text-color-light: #0047AB;
   --bg-color-dark: #282828;
   --text-color-dark: #DCDCDC;
   --hover-text-color-dark: #87CEEB;
+  --transition-duration: 0.3s;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body,
 nav,
 .light-theme,
-.dark-theme {
-  transition: background-color 0.3s ease, color 0.3s ease;
+.dark-theme,
+.mobile-menu-transition {
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease, max-height var(--transition-duration) ease-in-out, opacity var(--transition-duration) ease-in-out;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.mobile-menu-transition a,
+.mobile-menu-transition button {
+  transition: color var(--transition-duration) ease;
 }
 
 .light-theme {

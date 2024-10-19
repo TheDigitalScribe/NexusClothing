@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Open_Sans } from 'next/font/google';
 import "./globals.css";
+import { Layout } from './components/Layout';
 import { ThemeProvider } from './components/ThemeContext';
+import NavBar from "./components/NavBar";
+
+export const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,13 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>Nexus Clothing</title>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className} antialiased`}
       >
         <ThemeProvider>
-          {children}
+          <NavBar />
+          <main className="flex flex-col min-h-screen">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }
