@@ -3,21 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color-light: #EFEFEF;
+  --text-color-light: #000;
+  --hover-text-color-light: #0047AB;
+  --bg-color-dark: #282828;
+  --text-color-dark: #DCDCDC;
+  --hover-text-color-dark: #87CEEB;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body,
+nav,
+.light-theme,
+.dark-theme {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.light-theme {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.light-theme a:hover {
+  color: var(--hover-text-color-light);
+}
+
+.dark-theme a:hover {
+  color: var(--hover-text-color-dark);
 }
 
 @layer utilities {
