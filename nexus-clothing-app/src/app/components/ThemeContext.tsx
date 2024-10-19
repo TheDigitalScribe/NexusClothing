@@ -1,14 +1,7 @@
 'use client'
 
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-
-// Union type to hold light/dark values
-type Theme = 'light' | 'dark';
-
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
-}
+import { Theme, ThemeContextType } from '../types';
 
 // ThemeContext for managing the theme in global state
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -16,7 +9,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('light');
 
-  // Retrieves theme from local storage if it is there,
+  // Retrieve theme from localStorage if it is there,
   // Otherwise, set the theme to the browser preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
@@ -28,13 +21,14 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
   }, []);
 
-  // Apply theme class to body on component mount
+  // Apply theme class to body on render
   useEffect(() => {
     if (typeof window !== 'undefined') {
       document.body.className = theme === 'light' ? 'light-theme' : 'dark-theme';
     }
   }, [theme]);
 
+  // Save the theme in localStorage when toggled
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
@@ -48,7 +42,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   );
 };
 
-// Exports custom hook for accessing theme context
+// Export custom hook for accessing theme context
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

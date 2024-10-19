@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { MobileMenuToggle } from './MobileMenuToggle';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeContext';
+import { ThemeContextType } from '../types';
 
 const NavBar: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme() as ThemeContextType;
 
   return (
     <nav className="py-4 px-6 md:px-16 shadow-md">

@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeContext';
 import { Bars3Icon } from '@heroicons/react/24/solid';
+import { ThemeContextType } from '../types';
 
 export const MobileMenuToggle: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { theme, toggleTheme } = useTheme() as ThemeContextType;
 
   return (
     <div className="md:hidden">
