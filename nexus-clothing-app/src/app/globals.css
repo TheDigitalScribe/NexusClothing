@@ -19,16 +19,9 @@ body {
 }
 
 body,
-nav,
 .light-theme,
-.dark-theme,
-.mobile-menu-transition {
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease, max-height var(--transition-duration) ease-in-out, opacity var(--transition-duration) ease-in-out;
-}
-
-.mobile-menu-transition a,
-.mobile-menu-transition button {
-  transition: color var(--transition-duration) ease;
+.dark-theme {
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease
 }
 
 .light-theme {

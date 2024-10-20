@@ -13,21 +13,24 @@ export const MobileMenuToggle: React.FC = () => {
 
   return (
     <div className="md:hidden">
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="transition-all duration-[var(--transition-duration)] focus:outline-none" aria-expanded={isMenuOpen} aria-label="Toggle mobile menu">
-        <Bars3Icon className={`w-6 h-6 ${theme == "dark" ? "text-white" : "text-black"}`}></Bars3Icon>
+      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="focus:outline-none" aria-expanded={isMenuOpen} aria-label="Toggle mobile menu">
+        <Bars3Icon className="w-6 h-6"></Bars3Icon>
       </button>
 
       {isMenuOpen && (
         <div className={`absolute top-14 left-0 right-0 shadow-md mobile-menu-transition z-[9999] ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
-          <Link href="/" className="block py-2 px-4 text-sm">HOME</Link>
-          <Link href="/about" className="block py-2 px-4 text-sm">ABOUT</Link>
-          <Link href="/products" className="block py-2 px-4 text-sm">PRODUCTS</Link>
+          <Link href="/women-products" className="block py-2 px-4 text-sm">Women</Link>
+          <Link href="/men-products" className="block py-2 px-4 text-sm">Men</Link>
+          <Link href="/accessories" className="block py-2 px-4 text-sm">Accessories</Link>
+          <Link href="/new-arrivals" className="block py-2 px-4 text-sm">New Arrivals</Link>
+          <Link href="/sales" className="block py-2 px-4 text-sm">Sales</Link>
           <div className="py-2 px-4 flex space-x-2">
             <span className="text-sm">Theme: </span>
             <ThemeToggle />
           </div>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }

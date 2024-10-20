@@ -1,10 +1,12 @@
 'use client'
 
 import Link from 'next/link';
+import { SearchBar } from './SearchBar';
 import { MobileMenuToggle } from './MobileMenuToggle';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeContext';
 import { ThemeContextType } from '../types';
+import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 
 const NavBar: React.FC = () => {
   const { theme } = useTheme() as ThemeContextType;
@@ -15,16 +17,27 @@ const NavBar: React.FC = () => {
 
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
-            <h1 className="text-lg md:text-xl font-bold transition-all duration-500">NEXUS CLOTHING</h1>
+          <Link href="/">
+            <h1 className="text-lg md:text-xl font-bold">NEXUS</h1>
           </Link>
         </div>
 
         {/* Navigation Links - hidden on mobile */}
         <div className="hidden md:flex space-x-8 justify-center flex-grow">
-          <Link href="/" className="transition-all duration-500">HOME</Link>
-          <Link href="/about" className="transition-all duration-500">ABOUT</Link>
-          <Link href="/products" className="transition-all duration-500">PRODUCTS</Link>
+          <Link href="/women-products" className="transition-all duration-300">Women</Link>
+          <Link href="/men-products" className="transition-all duration-300">Men</Link>
+          <Link href="/accessories" className="transition-all duration-300">Accessories</Link>
+          <Link href="/new-arrivals" className="transition-all duration-300">New Arrivals</Link>
+          <Link href="/sales" className="transition-all duration-300">Sales</Link>
+        </div>
+
+        {/* Searchbar */}
+        <div className="hidden md:block">
+          <SearchBar />
+        </div>
+
+        <div className="block md:hidden">
+          <MagnifyingGlassIcon className="w-5 h-5"></MagnifyingGlassIcon>
         </div>
 
         {/* Hamburger Menu */}
