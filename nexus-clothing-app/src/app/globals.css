@@ -20,18 +20,21 @@ body {
 
 body,
 .light-theme,
-.dark-theme {
+.dark-theme,
+.searchbar-transition {
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease
 }
 
 .light-theme {
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
+  border-color: var(--text-color-light);
 }
 
 .dark-theme {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+  border-color: var(--text-color-dark);
 }
 
 .light-theme a:hover,
@@ -42,6 +45,36 @@ body,
 .dark-theme a:hover,
 .dark-theme button:hover {
   color: var(--hover-text-color-dark);
+}
+
+/* Light theme styles */
+.input-light {
+  @apply text-gray-400 transition-colors duration-300;
+}
+
+.input-light:hover,
+.input-light:focus {
+  @apply text-black transition-colors duration-300;
+}
+
+.input-light:hover::placeholder,
+.input-light:focus::placeholder {
+  @apply text-black transition-colors duration-300;
+}
+
+/* Dark theme styles */
+.input-dark {
+  @apply text-gray-500 transition-colors duration-300;
+}
+
+.input-dark:hover,
+.input-dark:focus {
+  @apply text-gray-500 transition-colors duration-300;
+}
+
+.input-dark:hover::placeholder,
+.input-dark:focus::placeholder {
+  @apply text-white transition-colors duration-300;
 }
 
 @layer utilities {
