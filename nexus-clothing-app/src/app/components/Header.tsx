@@ -3,13 +3,13 @@
 import Link from 'next/link';
 import { SearchBar } from './SearchBar';
 import { MobileMenuToggle } from './MobileMenuToggle';
-import { ThemeToggle } from './ThemeToggle';
-import { useTheme } from './ThemeContext';
-import { ThemeContextType } from '../types';
+// import { ThemeToggle } from './ThemeToggle';
+// import { useTheme } from './ThemeContext';
+// import { ThemeContextType } from '../types';
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
 
 const NavBar: React.FC = () => {
-  const { theme } = useTheme() as ThemeContextType;
+  // const { theme } = useTheme() as ThemeContextType;
 
   return (
     <nav className="py-4 px-6 md:px-12 shadow-md">
@@ -31,16 +31,16 @@ const NavBar: React.FC = () => {
           <Link href="/sales" className="transition-colors duration-200">Sales</Link>
         </div>
 
-        {/* Searchbar,  */}
+        {/* Searchbar, Shopping Cart and Account */}
         <div className="hidden md:flex items-center">
           <div>
             <SearchBar />
           </div>
           <div className="ml-4 space-x-4">
-            <button>
+            <button aria-label="Shopping Cart Button">
               <ShoppingCartIcon className="w-6 h-6 transition-colors duration-200" />
             </button>
-            <button>
+            <button aria-label="Account Button">
               <UserIcon className="w-6 h-6 transition-colors duration-200" />
             </button>
           </div>

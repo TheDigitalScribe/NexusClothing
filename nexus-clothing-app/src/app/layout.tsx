@@ -1,29 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Open_Sans } from 'next/font/google';
+import { openSans } from './fonts/fonts'
 import "./globals.css";
 import { ThemeProvider } from './components/ThemeContext';
 import Header from "./components/Header";
 
-export const openSans = Open_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
   title: "Nexus Clothing",
-  description: "E-commerce clothing website built with React, Next.js 13 and Typescript.",
+  description: "E-commerce clothing website built with React, Next.js 14 and Typescript.",
 };
 
 export default function RootLayout({
