@@ -9,6 +9,10 @@ import HeroImage from './public/images/hero-img.webp';
 import BeanieImage from './public/images/beanie.webp';
 import LeatherJacketImage from './public/images/leather-jacket.webp';
 import RippedJeansImage from './public/images/ripped-jeans.webp';
+import { TruckIcon } from '@heroicons/react/24/solid'
+import { GlobeAltIcon } from '@heroicons/react/24/solid';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { HeartIcon } from '@heroicons/react/24/solid';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -46,15 +50,46 @@ const Page: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex flex-col px-4 md:px-12 mt-12 items-center justify-center">
-        <div className="text-xl font-light md:text-3xl mb-8">Featured Products</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+      {/* Featured Products Section */}
+      <section className="flex flex-col px-4 md:px-12 mt-20 items-center justify-center">
+        <div className="text-xl font-light md:text-3xl">Featured Products</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mt-12">
           <Suspense fallback={<p>Loading products...</p>}>
             <ProductCard title="Beanie" image={BeanieImage} description="Wrap yourself in cozy comfort with our versatile beanie, designed to keep you warm and stylish in any weather." price="€11.99" reviewAverage="4.3" reviewAmount="(68)" />
             <ProductCard title="Leather Jacket" image={LeatherJacketImage} description="Elevate your style with our premium leather jacket, crafted from buttery-soft, genuine leather." price="€24.99" reviewAverage="4.6" reviewAmount="(173)" />
             <ProductCard title="Ripped Jeans" image={RippedJeansImage} description="Unleash your rebellious side with our edgy ripped jeans, featuring strategically placed tears for an effortlessly cool, lived-in look." price="€19.99" reviewAverage="4.4" reviewAmount="(126)" />
           </Suspense>
         </div>
+      </section>
+
+      <section className="flex flex-col px-4 md:px-12 mt-20 items-center justify-center">
+        <div className="text-xl font-light md:text-3xl">Our Commitment To You</div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mt-12">
+          <div className="flex flex-col items-center w-60">
+            <TruckIcon className="w-12 h-12 text-blue-500" />
+            <h2 className="text-lg font-bold mt-2">Free Shipping</h2>
+            <p className="leading-1 mt-2">Enjoy free shipping on all orders over $50. We deliver to your doorstep anywhere in the continental US.</p>
+          </div>
+
+          <div className="flex flex-col items-center w-60">
+            <GlobeAltIcon className="w-12 h-12 text-blue-500" />
+            <h2 className="text-lg font-bold mt-2">Eco-Friendly</h2>
+            <p className="leading-1 mt-2">We're committed to sustainability. Our products are made from organic materials and packaged in recyclable containers.</p>
+          </div>
+
+          <div className="flex flex-col items-center w-60">
+            <StarIcon className="w-12 h-12 text-blue-500" />
+            <h2 className="text-lg font-bold mt-2">Top-Rated</h2>
+            <p className="leading-1 mt-2">Consistently rated 4.8/5 stars by our customers. Quality you can trust, style you'll love.</p>
+          </div>
+
+          <div className="flex flex-col items-center w-60">
+            <HeartIcon className="w-12 h-12 text-blue-500" />
+            <h2 className="text-lg font-bold mt-2">Customer Love</h2>
+            <p className="leading-1 mt-2">Join our community of 100,000+ happy customers. We're dedicated to your satisfaction and style journey.</p>
+          </div>
+        </div>
+
       </section>
     </>
   );
