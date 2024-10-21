@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image';
+import { Button } from './Button';
 import { useTheme } from './ThemeContext';
 import { ProductDisplayProps, ThemeContextType } from '../types';
 import { StarIcon } from '@heroicons/react/16/solid';
@@ -10,7 +11,7 @@ export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, descr
   const { theme } = useTheme() as ThemeContextType;
 
   return (
-    <div className={`flex flex-col bg-white rounded-xl w-80 shadow-lg overflow-hidden ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
+    <div className={`card flex flex-col w-80 rounded-xl shadow-lg overflow-hidden ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
       <div className="relative h-64 w-full">
         <Image
           src={image}
@@ -32,7 +33,7 @@ export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, descr
           </div>
         </div>
         <div className="mt-4">
-          <button aria-label="View Product Button" className="rounded-full py-2 px-4 bg-blue-600 items-center text-white shadow-sm transition-colors duration-300">View Product</button>
+          <Button text="View Product" ariaLabel="View Product Button" />
         </div>
       </div>
     </div>

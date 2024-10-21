@@ -5,9 +5,11 @@
 :root {
   --bg-color-light: #DCDCDC;
   --text-color-light: #000;
+  --card-bg-color-light: #DCDCDC;
   --hover-text-color-light: #0047AB;
-  --bg-color-dark: #282828;
+  --bg-color-dark: #303030;
   --text-color-dark: #DCDCDC;
+  --card-bg-color-dark: #101010;
   --hover-text-color-dark: #0047AB;
   --transition-duration: 0.3s;
 }
@@ -31,10 +33,20 @@ body,
   border-color: var(--text-color-light);
 }
 
+.light-theme .card {
+  background-color: var(--card-bg-color-light);
+  color: var(--text-color-light);
+}
+
 .dark-theme {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
   border-color: var(--text-color-dark);
+}
+
+.dark-theme .card {
+  background-color: var(--card-bg-color-dark);
+  color: var(--text-color-dark);
 }
 
 .light-theme a:hover,
