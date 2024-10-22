@@ -77,6 +77,7 @@ const Page: React.FC = () => {
       </section>
 
       <section className="flex flex-col px-4 md:px-12 mt-20 items-center justify-center">
+
       </section>
     </>
   );
