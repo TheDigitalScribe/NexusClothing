@@ -26,4 +26,5 @@ export interface TestimonialProps {
   avatar: StaticImageData;
   name: string;
   message: string;
+  changeImagePosition: boolean;
 }
