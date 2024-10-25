@@ -15,3 +15,15 @@ export interface ProductDisplayProps {
   reviewAverage: string;
   reviewAmount: string;
 }
+
+export interface BrandHighlightProps {
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  subtext: string;
+}
+
+export interface TestimonialProps {
+  avatar: StaticImageData;
+  name: string;
+  message: string;
+}

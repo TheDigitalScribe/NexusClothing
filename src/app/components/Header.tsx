@@ -3,9 +3,6 @@
 import Link from 'next/link';
 import { SearchBar } from './SearchBar';
 import { MobileMenuToggle } from './MobileMenuToggle';
-// import { ThemeToggle } from './ThemeToggle';
-// import { useTheme } from './ThemeContext';
-// import { ThemeContextType } from '../types';
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
 
 const NavBar: React.FC = () => {
