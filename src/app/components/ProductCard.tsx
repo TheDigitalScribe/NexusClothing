@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image';
-import { Button } from './Button';
+import { Button } from './Button/Button';
 import { useTheme } from './ThemeContext';
 import { ProductDisplayProps, ThemeContextType } from '../types';
 import { StarIcon } from '@heroicons/react/16/solid';

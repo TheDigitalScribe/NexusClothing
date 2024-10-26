@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Button } from './components/Button';
+import { Button } from './components/Button/Button';
 import { ProductDisplayProps, BrandHighlightProps, TestimonialProps } from './types';
 import { Open_Sans } from 'next/font/google';
 
@@ -34,7 +34,7 @@ const ProductCard = dynamic<ProductDisplayProps>(
 );
 
 const BrandHighlight = dynamic<BrandHighlightProps>(
-  () => import('./components/BrandHighlight').then((mod) => mod.BrandHighlight),
+  () => import('./components/BrandHighlight/BrandHighlight').then((mod) => mod.BrandHighlight),
   {
     loading: () => <p>Loading Brand Highlights...</p>,
   }
