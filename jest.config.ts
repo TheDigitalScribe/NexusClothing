@@ -9,7 +9,7 @@ const customJestConfig = {
   testMatch: [
     '<rootDir>/src/**/*.test.{js,jsx,ts,tsx}'
   ],
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testEnvironment: 'jest-environment-jsdom',
   moduleDirectories: ['node_modules', '<rootDir>/src'],
   modulePathIgnorePatterns: ['<rootDir>/node_modules/'],
@@ -19,6 +19,13 @@ const customJestConfig = {
     '!src/**/*.d.ts',
     '!src/**/types.ts',
   ],
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 80,
+  //     functions: 80,
+  //     lines: 80,
+  //     statements: 80,
+  //   },
   verbose: true
 }
 

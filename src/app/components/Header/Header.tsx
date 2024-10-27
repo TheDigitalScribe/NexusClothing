@@ -1,12 +1,11 @@
 'use client'
 
 import Link from 'next/link';
-import { SearchBar } from './SearchBar';
-import { MobileMenuToggle } from './MobileMenuToggle';
+import { SearchBar } from '../SearchBar';
+import { MobileMenuToggle } from '../MobileMenuToggle/MobileMenuToggle';
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
 
-const NavBar: React.FC = () => {
-  // const { theme } = useTheme() as ThemeContextType;
+export const Header: React.FC = () => {
 
   return (
     <nav className="py-4 px-6 md:px-12 shadow-md">
@@ -52,5 +51,3 @@ const NavBar: React.FC = () => {
     </nav >
   )
 }
-
-export default NavBar;

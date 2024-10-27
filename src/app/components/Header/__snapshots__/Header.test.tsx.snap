@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Interactive Elements matches snapshot 1`] = `
+<div>
+  <nav
+    class="py-4 px-6 md:px-12 shadow-md"
+  >
+    <div
+      class="container mx-auto flex justify-between items-center"
+    >
+      <div
+        class="flex-shrink-0"
+      >
+        <a
+          href="/"
+        >
+          <h1
+            class="text-lg md:text-xl font-bold transition-colors duration-200"
+          >
+            NEXUS
+          </h1>
+        </a>
+      </div>
+      <div
+        class="hidden md:flex space-x-8 items-center justify-center flex-grow text-lg"
+      >
+        <a
+          href="/women-products"
+        >
+          Women
+        </a>
+        <a
+          href="/men-products"
+        >
+          Men
+        </a>
+        <a
+          href="/accessories"
+        >
+          Accessories
+        </a>
+        <a
+          href="/new-arrivals"
+        >
+          New Arrivals
+        </a>
+        <a
+          href="/sales"
+        >
+          Sales
+        </a>
+      </div>
+      <div
+        class="hidden md:flex items-center"
+      >
+        <div>
+          <div
+            data-testid="search-bar"
+          >
+            Search Bar
+          </div>
+        </div>
+        <div
+          class="ml-4 space-x-4"
+        >
+          <button
+            aria-label="Shopping Cart Button"
+          >
+            <svg
+              data-testid="shopping-cart-icon"
+            />
+          </button>
+          <button
+            aria-label="Account Button"
+          >
+            <svg
+              data-testid="user-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex md:hidden space-x-4"
+      >
+        <svg
+          data-testid="magnifying-glass-icon"
+        />
+        <div
+          data-testid="mobile-menu-toggle"
+        >
+          Mobile Menu Toggle
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

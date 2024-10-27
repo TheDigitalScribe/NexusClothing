@@ -27,21 +27,27 @@ const openSans = Open_Sans({
 
 // Dynamically loading in ProductCard to optimize performance
 const ProductCard = dynamic<ProductDisplayProps>(
-  () => import('./components/ProductCard').then((mod) => mod.ProductCard),
+  () => import('./components/ProductCard/ProductCard').then((mod) => ({
+    default: mod.ProductCard
+  })),
   {
     loading: () => <p>Loading Products...</p>,
   }
 );
 
 const BrandHighlight = dynamic<BrandHighlightProps>(
-  () => import('./components/BrandHighlight/BrandHighlight').then((mod) => mod.BrandHighlight),
+  () => import('./components/BrandHighlight/BrandHighlight').then((mod) => ({
+    default: mod.BrandHighlight
+  })),
   {
     loading: () => <p>Loading Brand Highlights...</p>,
   }
 );
 
 const Testimonial = dynamic<TestimonialProps>(
-  () => import('./components/Testimonial').then((mod) => mod.Testimonial),
+  () => import('./components/Testimonial').then((mod) => ({
+    default: mod.Testimonial
+  })),
   {
     loading: () => <p>Loading Testimonials...</p>,
   }

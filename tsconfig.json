@@ -3,6 +3,7 @@
     "types": [
       "jest",
       "@testing-library/jest-dom",
+      "@testing-library/user-event",
       "node"
     ],
     "lib": [
@@ -30,7 +31,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",

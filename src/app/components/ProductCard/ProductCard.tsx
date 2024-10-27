@@ -2,9 +2,9 @@
 
 import React from 'react'
 import Image from 'next/image';
-import { Button } from './Button/Button';
-import { useTheme } from './ThemeContext';
-import { ProductDisplayProps, ThemeContextType } from '../types';
+import { Button } from '../Button/Button';
+import { useTheme } from '../ThemeContext';
+import { ProductDisplayProps, ThemeContextType } from '../../types';
 import { StarIcon } from '@heroicons/react/16/solid';
 
 export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, description, price, reviewAverage, reviewAmount }) => {

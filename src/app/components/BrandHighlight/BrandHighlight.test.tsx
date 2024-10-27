@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrandHighlight } from '@/app/components/BrandHighlight/BrandHighlight';
@@ -17,7 +16,6 @@ const mockPropsLongText = {
 }
 
 describe('BrandHighlight', () => {
-  // Render test
   it('renders the component', () => {
     render(<BrandHighlight {...mockProps} />);
 
@@ -26,7 +24,6 @@ describe('BrandHighlight', () => {
     expect(document.querySelector('svg')).toBeInTheDocument();
   });
 
-  // Tailwind CSS classes test
   it('applies correct Tailwind CSS classes', () => {
     render(<BrandHighlight {...mockProps} />);
 
@@ -35,7 +32,6 @@ describe('BrandHighlight', () => {
     expect(document.querySelector('svg')).toHaveClass('w-12 h-12 text-blue-500');
   });
 
-  // Different icons test
   it('works with different icons', () => {
     render(<BrandHighlight {...mockProps} Icon={FiStar} />);
 
@@ -46,7 +42,6 @@ describe('BrandHighlight', () => {
     expect(document.querySelector('svg')).toBeInTheDocument();
   });
 
-  // Long content test
   it('handles long text content', () => {
     render(<BrandHighlight {...mockPropsLongText} />);
 
@@ -54,7 +49,6 @@ describe('BrandHighlight', () => {
     expect(screen.getByText(mockPropsLongText.subtext)).toBeInTheDocument();
   });
 
-  // Snapshot test
   it('matches snapshot', () => {
     const { container } = render(<BrandHighlight {...mockProps} />);
 

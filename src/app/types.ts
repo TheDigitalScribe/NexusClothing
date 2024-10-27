@@ -12,8 +12,8 @@ export interface ProductDisplayProps {
   title: string;
   description: string;
   price: string;
-  reviewAverage: string;
-  reviewAmount: string;
+  reviewAverage: string | undefined;
+  reviewAmount: string | undefined;
 }
 
 export interface BrandHighlightProps {

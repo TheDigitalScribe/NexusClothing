@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ThemeToggle } from './ThemeToggle';
-import { useTheme } from './ThemeContext';
+import { ThemeToggle } from '../ThemeToggle';
+import { useTheme } from '../ThemeContext';
 import { Bars3Icon } from '@heroicons/react/16/solid';
-import { ThemeContextType } from '../types';
+import { ThemeContextType } from '../../types';
 
 export const MobileMenuToggle: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -18,7 +18,7 @@ export const MobileMenuToggle: React.FC = () => {
       </button>
 
       {isMenuOpen && (
-        <div className={`absolute top-14 left-0 right-0 shadow-md mobile-menu-transition z-[9999] ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
+        <div data-testid="mobile-menu" className={`absolute top-14 left-0 right-0 shadow-md mobile-menu-transition z-[9999] ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
           <hr className={`${theme == "dark" ? "dark-theme" : "light-theme"}`}></hr>
           <Link href="/women-products" className="block py-2 px-4 text-sm">Women</Link>
           <Link href="/men-products" className="block py-2 px-4 text-sm">Men</Link>
