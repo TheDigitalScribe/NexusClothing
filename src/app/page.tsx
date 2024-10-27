@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Button } from './components/Button/Button';
+import { Footer } from './components/Footer/Footer';
 import { ProductDisplayProps, BrandHighlightProps, TestimonialProps } from './types';
 import { Open_Sans } from 'next/font/google';
 
@@ -154,6 +155,9 @@ const Page: React.FC = () => {
         </div>
       </section>
 
+      <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
+        <Footer />
+      </section>
     </>
   );
 };
