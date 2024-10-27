@@ -6,7 +6,7 @@ import { Header } from "./components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Nexus Clothing",
-  description: "E-commerce clothing website built with React, Next.js 15 and TypeScript.",
+  description: "E-commerce clothing website built with React, Next.js 14 and TypeScript.",
 };
 
 export default function RootLayout({
