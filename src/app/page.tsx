@@ -39,7 +39,7 @@ const BrandHighlight = dynamic<BrandHighlightProps>(
 );
 
 const Testimonial = dynamic<TestimonialProps>(
-  () => import('./components/Testimonial').then((mod) => ({
+  () => import('./components/Testimonial/Testimonial').then((mod) => ({
     default: mod.Testimonial
   })),
   {

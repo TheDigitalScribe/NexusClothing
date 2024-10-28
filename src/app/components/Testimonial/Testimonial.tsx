@@ -2,8 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image';
-import { useTheme } from './ThemeContext';
-import { TestimonialProps, ThemeContextType } from '../types';
+import { useTheme } from '../ThemeContext';
+import { TestimonialProps, ThemeContextType } from '../../types';
 
 export const Testimonial = ({ avatar, name, message, changeImagePosition }: TestimonialProps) => {
   const { theme } = useTheme() as ThemeContextType;

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Rendering renders correctly in dark theme 1`] = `
+<div>
+  <form
+    class="flex items-center"
+    role="search"
+  >
+    <div
+      class="relative"
+    >
+      <input
+        aria-label="Search"
+        class="px-4 py-1 w-40 text-sm md:text-base border rounded-full focus:outline-blue-400 searchbar-transition dark-theme bg-gray-300 input-dark"
+        placeholder="Search..."
+        type="text"
+        value=""
+      />
+      <div
+        class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+      >
+        <div
+          data-testid="search-icon"
+        >
+          SearchIcon
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`SearchBar Rendering renders correctly in light theme 1`] = `
+<div>
+  <form
+    class="flex items-center"
+    role="search"
+  >
+    <div
+      class="relative"
+    >
+      <input
+        aria-label="Search"
+        class="px-4 py-1 w-40 text-sm md:text-base border rounded-full focus:outline-blue-400 searchbar-transition light-theme bg-gray-700 border-gray-700 input-light"
+        placeholder="Search..."
+        type="text"
+        value=""
+      />
+      <div
+        class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+      >
+        <div
+          data-testid="search-icon"
+        >
+          SearchIcon
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

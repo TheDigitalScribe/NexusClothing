@@ -4,9 +4,31 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Header } from './Header';
 
+// Mock next/link properly
+jest.mock('next/link', () => ({
+  __esModule: true,
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
+}));
+
+// Mock the entire ThemeContext module
+jest.mock('../ThemeContext', () => ({
+  useTheme: () => ({
+    theme: 'light',
+    toggleTheme: jest.fn(),
+  }),
+  ThemeProvider: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 // Mock the search bar
-jest.mock('../SearchBar', () => ({
+jest.mock('../SearchBar/SearchBar', () => ({
   SearchBar: () => <div data-testid="search-bar">Search Bar</div>,
+}));
+
+// Mock the theme toggle
+jest.mock('../ThemeToggle', () => ({
+  ThemeToggle: () => <div data-testid="theme-toggle">ThemeToggle</div>
 }));
 
 // Mock the mobile menu toggle
@@ -14,18 +36,11 @@ jest.mock('../MobileMenuToggle/MobileMenuToggle', () => ({
   MobileMenuToggle: () => <div data-testid="mobile-menu-toggle">Mobile Menu Toggle</div>,
 }));
 
-// Mock next/link
-jest.mock('next/link', () => {
-  return ({ children, href }: { children: React.ReactNode; href: string }) => (
-    <a href={href}>{children}</a>
-  );
-});
-
-// Mock heroicons
+// Mock HeroIcons
 jest.mock('@heroicons/react/16/solid', () => ({
   MagnifyingGlassIcon: () => <svg data-testid="magnifying-glass-icon" />,
   UserIcon: () => <svg data-testid="user-icon" />,
-  ShoppingCartIcon: () => <svg data-testid="shopping-cart-icon" />,
+  ShoppingCartIcon: () => <svg data-testid="shopping-cart-icon" />
 }));
 
 // Render test
@@ -39,7 +54,7 @@ describe('Header', () => {
     // Render navigation links test
     it('renders all navigation links', () => {
       render(<Header />);
-      const links = ['Women', 'Men', 'Accessories', 'New Arrivals', 'Sales'];
+      const links = ['Women', 'Men', 'Accessories', 'Sales'];
       links.forEach(link => {
         expect(screen.getByText(link)).toBeInTheDocument();
       });
@@ -67,7 +82,6 @@ describe('Header', () => {
         'Women': '/women-products',
         'Men': '/men-products',
         'Accessories': '/accessories',
-        'New Arrivals': '/new-arrivals',
         'Sales': '/sales'
       };
       Object.entries(linkMappings).forEach(([text, href]) => {

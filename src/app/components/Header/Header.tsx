@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { SearchBar } from '../SearchBar';
+import { SearchBar } from '../SearchBar/SearchBar';
 import { MobileMenuToggle } from '../MobileMenuToggle/MobileMenuToggle';
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
 import { ThemeToggle } from '../ThemeToggle';

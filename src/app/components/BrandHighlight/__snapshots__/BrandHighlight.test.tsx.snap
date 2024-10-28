@@ -1,35 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BrandHighlight matches snapshot 1`] = `
+exports[`BrandHighlight Rendering matches snapshot 1`] = `
 <div>
   <div
     class="flex flex-col items-center w-60"
   >
-    <svg
+    <div
       class="w-12 h-12 text-blue-500"
-      fill="none"
-      height="1em"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <polygon
-        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-      />
-    </svg>
+      data-testid="brand-highlight-icon"
+    />
     <h3
       class="text-lg sm:text-lg lg:text-xl font-bold mt-2"
     >
-      Test Title
+      Free Shipping
     </h3>
     <p
       class="leading-relaxed mt-2"
     >
-      Test Subtext
+      On orders over $50
     </p>
   </div>
 </div>
