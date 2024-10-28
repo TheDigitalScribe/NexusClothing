@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { SearchBar } from '../SearchBar';
 import { MobileMenuToggle } from '../MobileMenuToggle/MobileMenuToggle';
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
+import { ThemeToggle } from '../ThemeToggle';
 
 export const Header: React.FC = () => {
 
@@ -39,6 +40,9 @@ export const Header: React.FC = () => {
             <button aria-label="Account Button">
               <UserIcon className="w-6 h-6 transition-colors duration-200" />
             </button>
+          </div>
+          <div>
+            <ThemeToggle />
           </div>
         </div>
 

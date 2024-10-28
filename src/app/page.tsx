@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import { Button } from './components/Button/Button';
 import { Footer } from './components/Footer/Footer';
 import { ProductDisplayProps, BrandHighlightProps, TestimonialProps } from './types';
-import { Open_Sans } from 'next/font/google';
 
 import HeroImage from './public/images/hero-img.webp';
 import BeanieImage from './public/images/beanie.webp';
@@ -19,12 +18,6 @@ import { TruckIcon } from '@heroicons/react/24/solid'
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
 import { StarIcon } from '@heroicons/react/24/solid';
 import { HeartIcon } from '@heroicons/react/24/solid';
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-})
 
 // Dynamically loading in ProductCard to optimize performance
 const ProductCard = dynamic<ProductDisplayProps>(
@@ -58,7 +51,7 @@ const Page: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className={`relative h-[80vh] w-full overflow-hidden ${openSans.className}`}>
+      <section className={`relative h-[100vh] w-full overflow-hidden`}>
         <Image
           src={HeroImage}
           alt="Hero image of fashion model"
@@ -85,7 +78,7 @@ const Page: React.FC = () => {
             <Suspense fallback={<p>Loading products...</p>}>
               <ProductCard title="Beanie" image={BeanieImage} description="Wrap yourself in cozy comfort with our versatile beanie, designed to keep you warm and stylish in any weather." price="€11.99" reviewAverage="4.3" reviewAmount="(68)" />
               <ProductCard title="Leather Jacket" image={LeatherJacketImage} description="Elevate your style with our premium leather jacket, crafted from buttery-soft, genuine leather." price="€24.99" reviewAverage="4.6" reviewAmount="(173)" />
-              <ProductCard title="Ripped Jeans" image={RippedJeansImage} description="Unleash your rebellious side with our edgy ripped jeans, featuring strategically placed tears for an effortlessly cool, lived-in look." price="€19.99" reviewAverage="4.4" reviewAmount="(126)" />
+              <ProductCard title="Ripped Jeans" image={RippedJeansImage} description="Unleash your rebellious side with our edgy ripped jeans, for an effortlessly cool, lived-in look." price="€19.99" reviewAverage="4.4" reviewAmount="(126)" />
             </Suspense>
           </div>
         </div>
@@ -107,7 +100,7 @@ const Page: React.FC = () => {
               <BrandHighlight
                 Icon={GlobeAltIcon}
                 title="Eco-Friendly"
-                subtext="We're committed to sustainability. Our products are made from organic materials and packaged in recyclable containers."
+                subtext="We're committed to sustainability. Our products are packaged in recyclable containers."
               />
               <BrandHighlight
                 Icon={StarIcon}

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { openSans } from './fonts/fonts'
 import "./globals.css";
 import { ThemeProvider } from './components/ThemeContext';
 import { Header } from "./components/Header/Header";
@@ -16,8 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${openSans.className} antialiased`}
+      <body className="antiaiased"
       >
         <ThemeProvider>
           <Header />

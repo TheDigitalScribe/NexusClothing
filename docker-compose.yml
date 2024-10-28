@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: nexus_container
+    build: 
+      context: .
+      dockerfile: ${DOCKERFILE}
+      target: ${NODE_ENV}
+    image: nexus_clothing_image
+    ports:
+      - 3000:3000
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - DATABASE_URL=${POSTGRES_URL}
+    volumes:
+      - /app/node_modules
+      - .:/app
+    depends_on:
+      - db
+    networks: 
+      - nexus_network
+    restart: always
+
+  db:
+    container_name: nexus_db
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: 
+      - nexus_network
+    restart: always
+
+  pgadmin:
+    container_name: nexus_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - 5050:80
+    networks: 
+      - nexus_network
+
+volumes:
+  postgres_data:
+
+networks:
+  nexus_network:
+    driver: bridge

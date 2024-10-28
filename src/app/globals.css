@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --bg-color-light: #DCDCDC;
+  --bg-color-light: #FAF9F6;
   --text-color-light: #000;
-  --card-bg-color-light: #DCDCDC;
+  --card-bg-color-light: #fff;
   --hover-text-color-light: #0047AB;
   --bg-color-dark: #303030;
   --text-color-dark: #DCDCDC;
@@ -18,6 +20,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body,

@@ -9,7 +9,7 @@ export const Testimonial = ({ avatar, name, message, changeImagePosition }: Test
   const { theme } = useTheme() as ThemeContextType;
 
   return (
-    <div className={`w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 ${theme == "dark" ? "dark-theme" : "light-theme"} shadow-lg`}>
+    <div className={`card w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 ${theme == "dark" ? "dark-theme" : "light-theme"} shadow-lg`}>
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
         {/* Image Container */}
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex-shrink-0 rounded-full">
