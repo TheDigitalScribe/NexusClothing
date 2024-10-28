@@ -10,9 +10,6 @@ services:
     image: nexus_clothing_image
     ports:
       - 3000:3000
-    dns:
-      - 8.8.8.8
-      - 8.8.4.4
     environment:
       - NODE_ENV=${NODE_ENV}
       - DATABASE_URL=${POSTGRES_URL}

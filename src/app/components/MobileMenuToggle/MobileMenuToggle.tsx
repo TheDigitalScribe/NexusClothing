@@ -12,7 +12,7 @@ export const MobileMenuToggle: React.FC = () => {
   const { theme } = useTheme() as ThemeContextType;
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden mt-2">
       <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="focus:outline-none" aria-expanded={isMenuOpen} aria-label="Toggle mobile menu">
         <Bars3Icon className="w-6 h-6"></Bars3Icon>
       </button>

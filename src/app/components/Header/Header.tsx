@@ -19,21 +19,20 @@ export const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* Navigation Links - hidden on mobile */}
-        <div className="hidden md:flex space-x-8 items-center justify-center flex-grow">
+        {/* Navigation Links */}
+        <div className="hidden sm:flex space-x-8 items-center justify-center flex-grow">
           <Link href="/women-products" className="text-sm lg:text-lg transition-colors duration-200">Women</Link>
           <Link href="/men-products" className="text-sm lg:text-lg transition-colors duration-200">Men</Link>
           <Link href="/accessories" className="text-sm lg:text-lg transition-colors duration-200">Accessories</Link>
-          <Link href="/new-arrivals" className="text-sm lg:text-lg transition-colors duration-200">New Arrivals</Link>
           <Link href="/sales" className="text-sm lg:text-lg transition-colors duration-200">Sales</Link>
         </div>
 
         {/* Searchbar, Shopping Cart and Account */}
-        <div className="hidden sm:flex items-center space-x-2 lg:space-x-4">
-          <div className="w-32 sm:w-40 lg:w-48">
+        <div className="hidden md:flex items-center space-x-2 md:space-x-4">
+          <div className="hidden md:flex">
             <SearchBar />
           </div>
-          <div className="flex items-center space-x-2 lg:space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <button aria-label="Shopping Cart Button">
               <ShoppingCartIcon className="w-6 h-6 transition-colors duration-200" />
             </button>
@@ -46,8 +45,8 @@ export const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Hamburger Menu */}
-        <div className="flex md:hidden space-x-4">
+        {/* Hamburger Menu and Search Icon */}
+        <div className="flex md:hidden space-x-4 items-center justify-center">
           <MagnifyingGlassIcon className="w-6 h-6" />
           <MobileMenuToggle />
         </div>
