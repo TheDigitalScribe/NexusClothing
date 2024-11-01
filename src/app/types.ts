@@ -17,9 +17,14 @@ export interface BrandHighlightProps {
   subtext: string;
 }
 
-export interface TestimonialProps {
-  avatar: StaticImageData;
-  name: string;
+type Card = {
+  id: number;
+  designation: string;
   message: string;
-  changeImagePosition: boolean;
+};
+
+export type CardStackProps = {
+  items: Card[];
+  offset?: number;
+  scaleFactor?: number;
 }

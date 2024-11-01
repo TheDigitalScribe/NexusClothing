@@ -1,18 +1,19 @@
-import React, { Suspense } from 'react'
+"use client";
+
+import React, { useState, useEffect, Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Button } from "@/components/ui/button"
 import { Footer } from './components/Footer/Footer';
-import { ProductDisplayProps, BrandHighlightProps, TestimonialProps } from './types';
+import { ProductDisplayProps, BrandHighlightProps, CardStackProps } from './types';
+import { testimonials } from "../data/testimonials";
 
 import HeroImage from './public/images/hero-img.webp';
 import BeanieImage from './public/images/beanie.webp';
 import LeatherJacketImage from './public/images/leather-jacket.webp';
 import RippedJeansImage from './public/images/ripped-jeans.webp';
-import MaleAvatar1 from './public/images/male-avatar-1.webp';
-import FemaleAvatar1 from './public/images/female-avatar-1.webp';
-import FemaleAvatar2 from './public/images/female-avatar-2.webp';
+
 
 import { TruckIcon } from '@heroicons/react/24/solid'
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
@@ -38,16 +39,16 @@ const BrandHighlight = dynamic<BrandHighlightProps>(
   }
 );
 
-const Testimonial = dynamic<TestimonialProps>(
-  () => import('./components/Testimonial/Testimonial').then((mod) => ({
-    default: mod.Testimonial
-  })),
+const CardStack = dynamic<CardStackProps>(
+  () => import('../components/ui/card-stack').then((mod) => mod.CardStack),
   {
     loading: () => <p>Loading Testimonials...</p>,
   }
 );
 
 const LandingPage: React.FC = () => {
+
+
   return (
     <>
       {/* Hero Section */}
@@ -123,26 +124,9 @@ const LandingPage: React.FC = () => {
           Testimonials
         </h2>
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-sm">
-            <Suspense fallback={<p>Loading testimonials...</p>}>
-              <Testimonial
-                avatar={MaleAvatar1}
-                name="Alex M."
-                message="Shopping here has been consistently great. The clothes are high quality, sizing is accurate, and everything arrives quickly. What really stands out is how easy they make the whole experience - from browsing to checkout."
-                changeImagePosition={true}
-              />
-              <Testimonial
-                avatar={FemaleAvatar1}
-                name="Claire C."
-                message="I'm absolutely in love with my recent purchase! The attention to detail in the stitching and design shows real craftsmanship. The size guide was spot-on, and the clothes look exactly like the photos. Will definitely be shopping here again!"
-                changeImagePosition={true}
-              />
-              <Testimonial
-                avatar={FemaleAvatar2}
-                name="Erica S."
-                message="I was skeptical about Nexus Clothing at first, but this site won me over completely. The quality exceeds what you'd find in most retail stores, and their attention to detail is impressive"
-                changeImagePosition={false}
-              />
+          <div>
+            <Suspense fallback={<p className="text-center">Loading testimonials...</p>}>
+              <CardStack items={testimonials} offset={10} scaleFactor={0.06} />
             </Suspense>
           </div>
         </div>

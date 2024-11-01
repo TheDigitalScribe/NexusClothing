@@ -9,7 +9,6 @@ import { IoSearch } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
 
 export const Header: React.FC = () => {
   return (
@@ -25,10 +24,10 @@ export const Header: React.FC = () => {
 
         {/* Navigation Links */}
         <div className="hidden sm:flex space-x-8 items-center justify-center flex-grow">
-          <Link href="/women-products" className="text-sm lg:text-lg transition-colors duration-200">Women</Link>
-          <Link href="/men-products" className="text-sm lg:text-lg transition-colors duration-200">Men</Link>
-          <Link href="/accessories" className="text-sm lg:text-lg transition-colors duration-200">Accessories</Link>
-          <Link href="/sales" className="text-sm lg:text-lg transition-colors duration-200">Sales</Link>
+          <Link href="/women-products" className="text-sm lg:text-lg transition-colors duration-200 hover:text-blue-700">Women</Link>
+          <Link href="/men-products" className="text-sm lg:text-lg transition-colors duration-200 hover:text-blue-700">Men</Link>
+          <Link href="/accessories" className="text-sm lg:text-lg transition-colors duration-200 hover:text-blue-700">Accessories</Link>
+          <Link href="/sales" className="text-sm lg:text-lg transition-colors duration-200 hover:text-blue-700">Sales</Link>
         </div>
 
         {/* Searchbar, Shopping Cart and Account */}
@@ -38,10 +37,10 @@ export const Header: React.FC = () => {
           </div>
           <div className="flex items-center space-x-2 md:space-x-4">
             <button aria-label="Shopping Cart Button">
-              <ShoppingCartIcon className="w-6 h-6 transition-colors duration-200" />
+              <FaShoppingCart className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
             </button>
             <button aria-label="Account Button">
-              <UserIcon className="w-6 h-6 transition-colors duration-200" />
+              <FaUser className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
             </button>
           </div>
           <div>
