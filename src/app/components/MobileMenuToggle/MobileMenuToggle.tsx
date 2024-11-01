@@ -2,14 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ThemeToggle } from '../ThemeToggle';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from 'next-themes';
 import { Bars3Icon } from '@heroicons/react/16/solid';
-import { ThemeContextType } from '../../types';
 
 export const MobileMenuToggle: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const { theme } = useTheme() as ThemeContextType;
+  const { theme } = useTheme();
 
   return (
     <div className="md:hidden mt-2">
@@ -23,14 +21,12 @@ export const MobileMenuToggle: React.FC = () => {
           <Link href="/women-products" className="block py-2 px-4 text-sm">Women</Link>
           <Link href="/men-products" className="block py-2 px-4 text-sm">Men</Link>
           <Link href="/accessories" className="block py-2 px-4 text-sm">Accessories</Link>
-          <Link href="/new-arrivals" className="block py-2 px-4 text-sm">New Arrivals</Link>
           <Link href="/sales" className="block py-2 px-4 text-sm">Sales</Link>
           <br></br>
           <Link href="/cart" className="block py-2 px-4 text-sm">My Cart</Link>
           <Link href="/account" className="block py-2 px-4 text-sm">My Account</Link>
           <div className="py-2 px-4 flex space-x-2">
             <span className="text-sm">Theme: </span>
-            <ThemeToggle />
           </div>
         </div>
       )

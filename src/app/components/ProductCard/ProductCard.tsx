@@ -1,17 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react'
-import Image from 'next/image';
-import { Button } from '../Button/Button';
-import { useTheme } from '../ThemeContext';
-import { ProductDisplayProps, ThemeContextType } from '../../types';
-import { StarIcon } from '@heroicons/react/16/solid';
+import React from "react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ProductDisplayProps } from "../../types";
+import { StarIcon } from "@heroicons/react/16/solid";
 
 export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, description, price, reviewAverage, reviewAmount }) => {
-  const { theme } = useTheme() as ThemeContextType;
 
   return (
-    <div className={`card flex flex-col w-80 rounded-xl shadow-lg overflow-hidden ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
+    <div className="card flex flex-col w-80 rounded-xl shadow-lg overflow-hidden">
       <div className="relative h-64 w-full">
         <Image
           src={image}
@@ -33,7 +31,7 @@ export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, descr
           </div>
         </div>
         <div className="mt-4">
-          <Button text="View Product" ariaLabel="View Product Button" />
+          <Button buttonText="View Product" ariaLabel="View Product Button" />
         </div>
       </div>
     </div>

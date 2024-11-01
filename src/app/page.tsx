@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Button } from './components/Button/Button';
+import { Button } from "@/components/ui/button"
 import { Footer } from './components/Footer/Footer';
 import { ProductDisplayProps, BrandHighlightProps, TestimonialProps } from './types';
 
@@ -47,7 +47,7 @@ const Testimonial = dynamic<TestimonialProps>(
   }
 );
 
-const Page: React.FC = () => {
+const LandingPage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
@@ -65,7 +65,7 @@ const Page: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl lead">Elevate Your <span className="text-blue-600">Style</span>, Express Your <span className="text-blue-600 leading-relaxed">Essence</span></h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl font-thin text-white mb-8 sm:mb-12 max-w-2xl leading-relaxed">Discover clothing that speaks your language, from casual chic to bold statements</p>
           <Link href="/products">
-            <Button text="Explore Collection" ariaLabel="Explore Collection Button" />
+            <Button buttonText="Explore Collection" ariaLabel="Explore Collection Button" />
           </Link>
         </div>
       </section>
@@ -155,5 +155,5 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default LandingPage;
 

@@ -1,13 +1,17 @@
-'use client'
+"use client";
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { MobileMenuToggle } from '../MobileMenuToggle/MobileMenuToggle';
+import { Switch } from "@/components/ui/switch"
+import { IoSearch } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from '@heroicons/react/16/solid';
-import { ThemeToggle } from '../ThemeToggle';
 
 export const Header: React.FC = () => {
-
   return (
     <nav className="py-3 sm:py-4 px-4 sm:px-6 lg:px-20 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -41,14 +45,14 @@ export const Header: React.FC = () => {
             </button>
           </div>
           <div>
-            <ThemeToggle />
+            <Switch />
           </div>
         </div>
 
         {/* Hamburger Menu and Search Icon */}
         <div className="flex md:hidden space-x-4 items-center justify-center">
-          <MagnifyingGlassIcon className="w-6 h-6" />
-          <MobileMenuToggle />
+          <IoSearch className="w-6 h-6" />
+          <RxHamburgerMenu className="w-6 h-6" />
         </div>
       </div>
     </nav >

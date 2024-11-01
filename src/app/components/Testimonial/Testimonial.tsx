@@ -1,16 +1,14 @@
-'use client';
+"use client";
 
-import React from 'react'
-import Image from 'next/image';
-import { useTheme } from '../ThemeContext';
-import { TestimonialProps, ThemeContextType } from '../../types';
+import React from "react"
+import Image from "next/image";
+import { TestimonialProps } from "../../types";
 
 export const Testimonial = ({ avatar, name, message, changeImagePosition }: TestimonialProps) => {
-  const { theme } = useTheme() as ThemeContextType;
-
   return (
-    <div className={`card w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 ${theme == "dark" ? "dark-theme" : "light-theme"} shadow-lg`}>
+    <div className="card w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 bg-gray-300 dark:bg-gray-900">
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+
         {/* Image Container */}
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex-shrink-0 rounded-full">
           <Image
