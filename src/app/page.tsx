@@ -14,7 +14,6 @@ import BeanieImage from './public/images/beanie.webp';
 import LeatherJacketImage from './public/images/leather-jacket.webp';
 import RippedJeansImage from './public/images/ripped-jeans.webp';
 
-
 import { TruckIcon } from '@heroicons/react/24/solid'
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
 import { StarIcon } from '@heroicons/react/24/solid';
@@ -52,7 +51,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className={`relative h-[100vh] w-full overflow-hidden`}>
+      <section className="relative h-[75vh] lg:h-[100vh] w-full overflow-hidden">
         <Image
           src={HeroImage}
           alt="Hero image of fashion model"
@@ -76,7 +75,7 @@ const LandingPage: React.FC = () => {
         <div className="text-xl sm:text-2xl lg:text-3xl font-light text-center">Featured Products</div>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-20 mt-12 sm:mt-16 lg:mt-24 w-full max-w-7xl mx-auto place-items-center">
-            <Suspense fallback={<p>Loading products...</p>}>
+            <Suspense fallback={<p className="text-center">Loading products...</p>}>
               <ProductCard title="Beanie" image={BeanieImage} description="Wrap yourself in cozy comfort with our versatile beanie, designed to keep you warm and stylish in any weather." price="€11.99" reviewAverage="4.3" reviewAmount="(68)" />
               <ProductCard title="Leather Jacket" image={LeatherJacketImage} description="Elevate your style with our premium leather jacket, crafted from buttery-soft, genuine leather." price="€24.99" reviewAverage="4.6" reviewAmount="(173)" />
               <ProductCard title="Ripped Jeans" image={RippedJeansImage} description="Unleash your rebellious side with our edgy ripped jeans, for an effortlessly cool, lived-in look." price="€19.99" reviewAverage="4.4" reviewAmount="(126)" />
