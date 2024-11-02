@@ -4,23 +4,27 @@ import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { CardStack } from '@/components/ui/card-stack';
+import { CardStack } from "@/components/ui/card-stack";
+import { ProductCard } from './components/ProductCard/ProductCard';
 import { Button } from "@/components/ui/button"
-import { Footer } from './components/Footer/Footer';
-import { Spinner } from '@/components/ui/spinner';
-import { BrandHighlightProps } from '../types/types';
+import { Footer } from "./components/Footer/Footer";
+import { Spinner } from "@/components/ui/spinner";
+import { BrandHighlightProps } from "../types/types";
 import { testimonials } from "@/data/testimonials";
 
-import HeroImage from './public/images/hero-img.webp';
+import HeroImage from "./public/images/hero-image.webp";
+import BlackDress from "./public/images/black-dress.webp";
+import LeatherJacket from "./public/images/leather-jacket.webp";
+import RippedJeans from "./public/images/ripped-jeans.webp";
 
-import { TruckIcon } from '@heroicons/react/24/solid'
-import { GlobeAltIcon } from '@heroicons/react/24/solid';
-import { StarIcon } from '@heroicons/react/24/solid';
-import { HeartIcon } from '@heroicons/react/24/solid';
+import { TruckIcon } from "@heroicons/react/24/solid"
+import { GlobeAltIcon } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/24/solid";
+import { HeartIcon } from "@heroicons/react/24/solid";
 
 // Dynamically loading in ProductCard to optimize performance
 // const ProductCard = dynamic<ProductDisplayProps>(
-//   () => import('./components/ProductCard/ProductCard').then((mod) => ({
+//   () => import("./components/ProductCard/ProductCard").then((mod) => ({
 //     default: mod.ProductCard
 //   })),
 //   {
@@ -29,7 +33,7 @@ import { HeartIcon } from '@heroicons/react/24/solid';
 // );
 
 const BrandHighlight = dynamic<BrandHighlightProps>(
-  () => import('./components/BrandHighlight/BrandHighlight').then((mod) => ({
+  () => import("./components/BrandHighlight/BrandHighlight").then((mod) => ({
     default: mod.BrandHighlight
   })),
 );
@@ -59,27 +63,46 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Featured Products Section */}
-      {/* <section className="flex flex-col px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24 items-center justify-center">
+      <section className="flex flex-col px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24 items-center justify-center">
         <div className="text-xl sm:text-2xl lg:text-3xl font-light text-center">Featured Products</div>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-20 mt-12 sm:mt-16 lg:mt-24 w-full max-w-7xl mx-auto place-items-center">
-            <Suspense fallback={<p className="text-center">Loading products...</p>}>
-              <ProductCard title="Beanie" image={BeanieImage} description="Wrap yourself in cozy comfort with our versatile beanie, designed to keep you warm and stylish in any weather." price="€11.99" reviewAverage="4.3" reviewAmount="(68)" />
-              <ProductCard title="Leather Jacket" image={LeatherJacketImage} description="Elevate your style with our premium leather jacket, crafted from buttery-soft, genuine leather." price="€24.99" reviewAverage="4.6" reviewAmount="(173)" />
-              <ProductCard title="Ripped Jeans" image={RippedJeansImage} description="Unleash your rebellious side with our edgy ripped jeans, for an effortlessly cool, lived-in look." price="€19.99" reviewAverage="4.4" reviewAmount="(126)" />
-            </Suspense>
+            <ProductCard
+              productImage={BlackDress}
+              productTitle="Black Dress"
+              productDescription="Effortlessly elegant, this timeless black dress drapes beautifully to create a stunning silhouette that transitions seamlessly from day to night."
+              price={29.99}
+              reviewAverage={4.5}
+              reviewAmount={142}>
+            </ProductCard>
+            <ProductCard
+              productImage={LeatherJacket}
+              productTitle="Leather Jacket"
+              productDescription="Command attention in this expertly crafted leather jacket, featuring butter-soft genuine leather and classic moto-inspired details that exude confidence and edge."
+              price={19.99}
+              reviewAverage={4.3}
+              reviewAmount={79}>
+            </ProductCard>
+            <ProductCard
+              productImage={RippedJeans}
+              productTitle="Ripped Jeans"
+              productDescription="These perfectly distressed jeans combine authentic vintage-inspired rips with premium denim for that coveted lived-in look you've been searching for."
+              price={19.99}
+              reviewAverage={4.6}
+              reviewAmount={93}>
+            </ProductCard>
           </div>
         </div>
-      </section> */}
+      </section >
 
       {/* Our Commitments */}
-      <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
+      < section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24" >
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-light text-center mb-12 sm:mb-16 lg:mb-24">
           Our Commitment To You
         </h2>
         <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 justify-items-center">
-            <Suspense fallback={<Spinner size="medium" show={true} />}>
+          <Suspense fallback={<div><Spinner size="medium" show={true} /></div>}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 justify-items-center">
               <BrandHighlight
                 Icon={TruckIcon}
                 title="Free Shipping"
@@ -100,25 +123,25 @@ const LandingPage: React.FC = () => {
                 title="Customer Love"
                 subtext="Join our community of 100,000+ happy customers. We're dedicated to your satisfaction."
               />
-            </Suspense>
-          </div>
+            </div>
+          </Suspense>
         </div>
-      </section>
+      </section >
 
       {/* Testimonials */}
-      <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
+      < section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24" >
         <h2 className="text-xl sm:text-3xl lg:text-3xl font-light text-center mb-12 sm:mb-16 lg:mb-24">
           Testimonials
         </h2>
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <CardStack items={testimonials} offset={8} scaleFactor={0.06} />
         </div>
-      </section>
+      </section >
 
       {/* Footer */}
-      <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
+      < section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24" >
         <Footer />
-      </section>
+      </section >
     </>
   );
 };

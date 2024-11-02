@@ -3,13 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --bg-color-light: #FAF9F6;
+  --bg-color-light: #F2F0EF;
   --text-color-light: #000;
-  --card-bg-color-light: #fff;
   --hover-text-color-light: #0047AB;
   --bg-color-dark: #303030;
   --text-color-dark: #DCDCDC;
-  --card-bg-color-dark: #101010;
   --hover-text-color-dark: #0047AB;
   --transition-duration: 0.3s;
 }

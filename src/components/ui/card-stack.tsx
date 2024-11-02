@@ -92,10 +92,7 @@ export const CardStack = ({
 
   if (isLoading) {
     return (
-      <div className="flex flex-col space-y-8">
-        <Spinner size="medium" />
-        <p className="text-center">Loading testimonials...</p>
-      </div>
+      <Spinner size="medium" />
     );
   }
 

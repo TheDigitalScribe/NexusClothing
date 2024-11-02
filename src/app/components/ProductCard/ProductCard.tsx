@@ -1,60 +1,39 @@
-// "use client";
+import React from "react";
+import Image from "next/image";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import { Button } from "@/components/ui/button";
+import { ProductDisplayProps } from "@/types/types";
+import { FaStar } from "react-icons/fa";
 
-// import React from "react"
-// import Image from "next/image";
-// import { Button } from "@/components/ui/button";
-// import { ProductDisplayProps } from "../../types";
-// import { StarIcon } from "@heroicons/react/16/solid";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardFooter,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card"
-
-// export const ProductCard: React.FC<ProductDisplayProps> = ({ image, title, description, price, reviewAverage, reviewAmount }) => {
-
-//   return (
-//     <Card className="w-80 roundex-xl shadow-lg overflow-hidden">
-//       <CardHeader>
-//         <CardTitle>Card Title</CardTitle>
-//         <CardDescription>Card Description</CardDescription>
-//       </CardHeader>
-//       <CardContent>
-//         <p>Card Content</p>
-//       </CardContent>
-//       <CardFooter>
-//         <p>Card Footer</p>
-//       </CardFooter>
-//     </Card>
-
-//     // <div className="card flex flex-col w-80 rounded-xl shadow-lg overflow-hidden">
-//     //   <div className="relative h-64 w-full">
-//     //     <Image
-//     //       src={image}
-//     //       alt={`${title} Image`}
-//     //       fill
-//     //       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//     //       className="object-cover"
-//     //     />
-//     //   </div>
-//     //   <div className="p-6">
-//     //     <h2 className="text-xl font-bold mb-2">{title}</h2>
-//     //     <p className="text-sm mb-4">{description}</p>
-//     //     <div className="flex flex-row space-x-4 text-sm">
-//     //       <p>{price}</p>
-//     //       <div className="flex flex-row">
-//     //         <StarIcon className="w-5 h-5 text-yellow-500" />
-//     //         <p className="ml-1">{reviewAverage}</p>
-//     //         <p className="ml-1">{reviewAmount}</p>
-//     //       </div>
-//     //     </div>
-//     //     <div className="mt-4">
-//     //       <Button buttonText="View Product" ariaLabel="View Product Button" />
-//     //     </div>
-//     //   </div>
-//     // </div>
-//   )
-// }
+export const ProductCard = ({ productImage, productTitle, productDescription, price, reviewAverage, reviewAmount }: ProductDisplayProps) => {
+  return (
+    <CardContainer className="inter-var shadow-lg">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gray-800 dark:border-white/[0.2] border-black/[0.1] w-auto h-auto rounded-xl p-6 border">
+        <CardItem
+          isImage
+          translateZ="50"
+          className="text-xl font-bold text-neutral-600 dark:text-white"
+        >
+          <Image
+            src={productImage}
+            height="1000"
+            width="1000"
+            className="h-80 object-cover rounded-xl group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+        <CardItem className="mt-8">
+          <h3 className="font-semibold text-lg md:text-xl">{productTitle}</h3>
+          <p className="font-light text-md leading-relaxed mt-4">{productDescription}</p>
+          <p className="font-semibold text-md leading-relaxed mt-4">€{price}</p>
+          <div className="flex flex-row space-x-2 mt-4 items-center">
+            <FaStar className="w-4 h-4 text-yellow-500" />
+            <p className="font-extralight text-md leading-relaxed">{reviewAverage}</p>
+            <p className="font-extralight text-md leading-relaxed">({reviewAmount})</p>
+          </div>
+          <Button className="mt-4">View Product</Button>
+        </CardItem>
+      </CardBody>
+    </CardContainer>
+  );
+}

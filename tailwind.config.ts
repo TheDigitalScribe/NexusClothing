@@ -9,8 +9,9 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			fontFamily: {
-				sans: ["Open Sans", "sans-serif"]
+			backgroundColor: {
+				'custom-light': 'var(--bg-color-light)',
+				'custom-dark': 'var(--bg-color-dark)',
 			},
 			colors: {
 				background: 'var(--background)',

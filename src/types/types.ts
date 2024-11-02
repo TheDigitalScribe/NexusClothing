@@ -3,12 +3,12 @@ import { StaticImageData } from 'next/image';
 export type Theme = 'light' | 'dark';
 
 export interface ProductDisplayProps {
-  image: StaticImageData;
-  title: string;
-  description: string;
-  price: string;
-  reviewAverage: string | undefined;
-  reviewAmount: string | undefined;
+  productImage: StaticImageData;
+  productTitle: string;
+  productDescription: string;
+  price: number;
+  reviewAverage: number;
+  reviewAmount: number;
 }
 
 export interface BrandHighlightProps {
