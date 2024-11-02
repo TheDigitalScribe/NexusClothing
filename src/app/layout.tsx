@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { openSans } from "./fonts";
 import { Header } from "./components/Header/Header";
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -15,8 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antiaiased"
-      >
+      <body className={`antiaiased ${openSans.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

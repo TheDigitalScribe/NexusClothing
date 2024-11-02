@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Spinner } from "@/components/ui/spinner";
 import axios from "axios";
 import BlankPlaceholder from "../../app/public/images/blank-user-image.webp";
 
@@ -90,7 +91,12 @@ export const CardStack = ({
   }, [isLoading, enrichedCards.length]);
 
   if (isLoading) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <div className="flex flex-col space-y-8">
+        <Spinner size="medium" />
+        <p className="text-center">Loading testimonials...</p>
+      </div>
+    );
   }
 
   if (error) {

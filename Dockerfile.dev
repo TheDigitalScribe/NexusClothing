@@ -1,14 +1,16 @@
-FROM node:20-alpine AS development
+FROM node:20-alpine as development
 
 WORKDIR /app
+
+# Create non-root user
+RUN addgroup -g 1001 nodejs && \
+  adduser -S nodejs -u 1001 -G nodejs
 
 COPY package*.json ./
 
 RUN npm install
 
 COPY . .
-
-RUN npm run build
 
 EXPOSE 3000
 

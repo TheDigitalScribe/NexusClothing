@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrandHighlightProps } from '../../types'
+import { BrandHighlightProps } from '../../../types/types'
 
 export const BrandHighlight = ({ Icon, title, subtext }: BrandHighlightProps) => {
   return (

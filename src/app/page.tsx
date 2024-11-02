@@ -1,18 +1,17 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { CardStack } from '@/components/ui/card-stack';
 import { Button } from "@/components/ui/button"
 import { Footer } from './components/Footer/Footer';
-import { ProductDisplayProps, BrandHighlightProps, CardStackProps } from './types';
-import { testimonials } from "../data/testimonials";
+import { Spinner } from '@/components/ui/spinner';
+import { BrandHighlightProps } from '../types/types';
+import { testimonials } from "@/data/testimonials";
 
 import HeroImage from './public/images/hero-img.webp';
-import BeanieImage from './public/images/beanie.webp';
-import LeatherJacketImage from './public/images/leather-jacket.webp';
-import RippedJeansImage from './public/images/ripped-jeans.webp';
 
 import { TruckIcon } from '@heroicons/react/24/solid'
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
@@ -20,33 +19,22 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import { HeartIcon } from '@heroicons/react/24/solid';
 
 // Dynamically loading in ProductCard to optimize performance
-const ProductCard = dynamic<ProductDisplayProps>(
-  () => import('./components/ProductCard/ProductCard').then((mod) => ({
-    default: mod.ProductCard
-  })),
-  {
-    loading: () => <p>Loading Products...</p>,
-  }
-);
+// const ProductCard = dynamic<ProductDisplayProps>(
+//   () => import('./components/ProductCard/ProductCard').then((mod) => ({
+//     default: mod.ProductCard
+//   })),
+//   {
+//     loading: () => <p>Loading Products...</p>,
+//   }
+// );
 
 const BrandHighlight = dynamic<BrandHighlightProps>(
   () => import('./components/BrandHighlight/BrandHighlight').then((mod) => ({
     default: mod.BrandHighlight
   })),
-  {
-    loading: () => <p>Loading Brand Highlights...</p>,
-  }
-);
-
-const CardStack = dynamic<CardStackProps>(
-  () => import('../components/ui/card-stack').then((mod) => mod.CardStack),
-  {
-    loading: () => <p>Loading Testimonials...</p>,
-  }
 );
 
 const LandingPage: React.FC = () => {
-
 
   return (
     <>
@@ -71,7 +59,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24 items-center justify-center">
+      {/* <section className="flex flex-col px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24 items-center justify-center">
         <div className="text-xl sm:text-2xl lg:text-3xl font-light text-center">Featured Products</div>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-20 mt-12 sm:mt-16 lg:mt-24 w-full max-w-7xl mx-auto place-items-center">
@@ -82,7 +70,7 @@ const LandingPage: React.FC = () => {
             </Suspense>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Commitments */}
       <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
@@ -91,7 +79,7 @@ const LandingPage: React.FC = () => {
         </h2>
         <div className="w-full max-w-7xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 justify-items-center">
-            <Suspense fallback={<p>Loading brand highlights...</p>}>
+            <Suspense fallback={<Spinner size="medium" show={true} />}>
               <BrandHighlight
                 Icon={TruckIcon}
                 title="Free Shipping"
@@ -123,14 +111,11 @@ const LandingPage: React.FC = () => {
           Testimonials
         </h2>
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div>
-            <Suspense fallback={<p className="text-center">Loading testimonials...</p>}>
-              <CardStack items={testimonials} offset={10} scaleFactor={0.06} />
-            </Suspense>
-          </div>
+          <CardStack items={testimonials} offset={8} scaleFactor={0.06} />
         </div>
       </section>
 
+      {/* Footer */}
       <section className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16 lg:mt-24">
         <Footer />
       </section>

@@ -1,6 +1,3 @@
-/* Have to import to make it compatible with docker-compose setup */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,82 +18,6 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-}
-
-body,
-.light-theme,
-.dark-theme,
-.searchbar-transition {
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease
-}
-
-.light-theme {
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
-  border-color: var(--text-color-light);
-}
-
-.light-theme .card {
-  background-color: var(--card-bg-color-light);
-  color: var(--text-color-light);
-}
-
-.dark-theme {
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
-  border-color: var(--text-color-dark);
-}
-
-.dark-theme .card {
-  background-color: var(--card-bg-color-dark);
-  color: var(--text-color-dark);
-}
-
-.light-theme a:hover,
-.light-theme button:hover {
-  color: var(--hover-text-color-light);
-}
-
-.dark-theme a:hover,
-.dark-theme button:hover {
-  color: var(--hover-text-color-dark);
-}
-
-/* Light theme styles */
-.input-light {
-  @apply text-gray-400 transition-colors duration-300;
-}
-
-.input-light:hover,
-.input-light:focus {
-  @apply text-black transition-colors duration-300;
-}
-
-.input-light:hover::placeholder,
-.input-light:focus::placeholder {
-  @apply text-black transition-colors duration-300;
-}
-
-/* Dark theme styles */
-.input-dark {
-  @apply text-gray-500 transition-colors duration-300;
-}
-
-.input-dark:hover,
-.input-dark:focus {
-  @apply text-gray-500 transition-colors duration-300;
-}
-
-.input-dark:hover::placeholder,
-.input-dark:focus::placeholder {
-  @apply text-white transition-colors duration-300;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
 
 @layer base {
@@ -111,6 +32,7 @@ body,
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;

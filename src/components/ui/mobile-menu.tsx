@@ -17,7 +17,7 @@ export const MobileMenu: React.FC = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <RxHamburgerMenu className="w-6 h-6" onClick={(isMenuOpen) => setIsMenuOpen(!isMenuOpen)} />
+        <RxHamburgerMenu className="w-6 h-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
