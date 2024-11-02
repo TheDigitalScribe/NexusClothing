@@ -17,10 +17,11 @@ import BlackDress from "./public/images/black-dress.webp";
 import LeatherJacket from "./public/images/leather-jacket.webp";
 import RippedJeans from "./public/images/ripped-jeans.webp";
 
-import { TruckIcon } from "@heroicons/react/24/solid"
-import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import { StarIcon } from "@heroicons/react/24/solid";
-import { HeartIcon } from "@heroicons/react/24/solid";
+import { PiCoatHanger } from "react-icons/pi";
+import { FaTruck } from "react-icons/fa";
+import { FaGlobe } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 // Dynamically loading in ProductCard to optimize performance
 // const ProductCard = dynamic<ProductDisplayProps>(
@@ -57,7 +58,7 @@ const LandingPage: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl lead">Elevate Your <span className="text-blue-600">Style</span>, Express Your <span className="text-blue-600 leading-relaxed">Essence</span></h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl font-thin text-white mb-8 sm:mb-12 max-w-2xl leading-relaxed">Discover clothing that speaks your language, from casual chic to bold statements</p>
           <Link href="/products">
-            <Button buttonText="Explore Collection" ariaLabel="Explore Collection Button" />
+            <Button icon={<PiCoatHanger className="h-5 w-5 mt-0.5" />} buttonText="Explore Collection" ariaLabel="Explore Collection Button" />
           </Link>
         </div>
       </section>
@@ -104,22 +105,22 @@ const LandingPage: React.FC = () => {
           <Suspense fallback={<div><Spinner size="medium" show={true} /></div>}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 justify-items-center">
               <BrandHighlight
-                Icon={TruckIcon}
+                Icon={FaTruck}
                 title="Free Shipping"
                 subtext="Enjoy free shipping on all orders over $50. We deliver to your doorstep anywhere in the continental US."
               />
               <BrandHighlight
-                Icon={GlobeAltIcon}
+                Icon={FaGlobe}
                 title="Eco-Friendly"
                 subtext="We're committed to sustainability. Our products are packaged in recyclable containers."
               />
               <BrandHighlight
-                Icon={StarIcon}
+                Icon={FaStar}
                 title="Top-Rated"
                 subtext="Consistently rated 4.8/5 stars by our customers. Quality you can trust, style you'll love."
               />
               <BrandHighlight
-                Icon={HeartIcon}
+                Icon={FaHeart}
                 title="Customer Love"
                 subtext="Join our community of 100,000+ happy customers. We're dedicated to your satisfaction."
               />

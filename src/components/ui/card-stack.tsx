@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Spinner } from "@/components/ui/spinner";
 import axios from "axios";
 import BlankPlaceholder from "../../app/public/images/blank-user-image.webp";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 
 type UserData = {
   name: {
@@ -140,9 +141,12 @@ export const CardStack = ({
                     ? `${card.userData.name.first} ${card.userData.name.last}`
                     : "Anonymous"}
                 </p>
-                <p className="text-neutral-500 dark:text-neutral-400 text-sm">
-                  {card.designation}
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-neutral-500 dark:text-neutral-400 text-sm">
+                    {card.designation}
+                  </p>
+                  <IoIosCheckmarkCircle className="text-blue-500" />
+                </div>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ export const MobileSearchBarDialog = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Search Nexus Clothing</DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="pt-2">
             Search for various categories and products
           </DialogDescription>
         </DialogHeader>

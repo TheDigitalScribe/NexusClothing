@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
 import { ProductDisplayProps } from "@/types/types";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaEye } from "react-icons/fa";
 
 export const ProductCard = ({ productImage, productTitle, productDescription, price, reviewAverage, reviewAmount }: ProductDisplayProps) => {
   return (
@@ -31,7 +31,7 @@ export const ProductCard = ({ productImage, productTitle, productDescription, pr
             <p className="font-extralight text-md leading-relaxed">{reviewAverage}</p>
             <p className="font-extralight text-md leading-relaxed">({reviewAmount})</p>
           </div>
-          <Button className="mt-4">View Product</Button>
+          <Button icon={<FaEye className="w-5 h-5" />} buttonText="View Product" ariaLabel="View Product Button" className="mt-4"></Button>
         </CardItem>
       </CardBody>
     </CardContainer>
