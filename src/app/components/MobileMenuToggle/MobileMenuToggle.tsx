@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { Bars3Icon } from '@heroicons/react/16/solid';
+import { IoIosMenu } from "react-icons/io";
 
 export const MobileMenuToggle: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -12,7 +12,7 @@ export const MobileMenuToggle: React.FC = () => {
   return (
     <div className="md:hidden mt-2">
       <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="focus:outline-none" aria-expanded={isMenuOpen} aria-label="Toggle mobile menu">
-        <Bars3Icon className="w-6 h-6"></Bars3Icon>
+        <IoIosMenu className="w-6 h-6"></IoIosMenu>
       </button>
 
       {isMenuOpen && (

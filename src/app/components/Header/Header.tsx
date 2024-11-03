@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Switch } from "@/components/ui/switch"
@@ -10,6 +10,9 @@ import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 export const Header: React.FC = () => {
+  const [user, setUser] = useState(false);
+
+  const authPageLink = user ? "/user" : "/auth/login";
 
   return (
     <nav className="py-3 sm:py-4 px-4 sm:px-6 lg:px-20 shadow-md">
@@ -39,9 +42,11 @@ export const Header: React.FC = () => {
             <button aria-label="Shopping Cart Button">
               <FaShoppingCart className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
             </button>
-            <button aria-label="Account Button">
-              <FaUser className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
-            </button>
+            <Link href={authPageLink}>
+              <button aria-label="Account Button" className="mt-1">
+                <FaUser className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
+              </button>
+            </Link>
           </div>
           <div>
             <Switch />

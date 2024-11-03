@@ -143,8 +143,16 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear",
-        isImage && "transform-gpu", // Add GPU acceleration for images
+      className={cn("w-fit transition duration-300 ease-out",
+        isImage && [
+          "transform-gpu",
+          "will-change-transform",
+          "backface-visibility-hidden",
+          "webkit-font-smoothing-antialiased",
+          "moz-osx-font-smoothing-grayscale",
+          "perspective-1000",
+          "translate-z-0",
+        ],
         className)}
       {...rest}
     >

@@ -23,16 +23,6 @@ import { FaGlobe } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
-// Dynamically loading in ProductCard to optimize performance
-// const ProductCard = dynamic<ProductDisplayProps>(
-//   () => import("./components/ProductCard/ProductCard").then((mod) => ({
-//     default: mod.ProductCard
-//   })),
-//   {
-//     loading: () => <p>Loading Products...</p>,
-//   }
-// );
-
 const BrandHighlight = dynamic<BrandHighlightProps>(
   () => import("./components/BrandHighlight/BrandHighlight").then((mod) => ({
     default: mod.BrandHighlight
@@ -40,7 +30,6 @@ const BrandHighlight = dynamic<BrandHighlightProps>(
 );
 
 const LandingPage: React.FC = () => {
-
   return (
     <>
       {/* Hero Section */}
