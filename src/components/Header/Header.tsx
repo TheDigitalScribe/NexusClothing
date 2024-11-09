@@ -1,19 +1,15 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { SearchBar } from "../SearchBar/SearchBar";
-import { Switch } from "@/components/ui/switch"
-import { MobileMenu } from "@/components/ui/mobile-menu";
-import { MobileSearchBarDialog } from "@/components/ui/mobile-searchbar-dialog";
-import { FaUser } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+import React from 'react';
+import Link from 'next/link';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { Switch } from '@/components/ui/switch'
+import { MobileMenu } from '@/components/ui/mobile-menu';
+import { MobileSearchBarDialog } from '@/components/ui/mobile-searchbar-dialog';
+import { UserAccountLink } from '../UserAccountLink/UserAccountLink';
+import { FaShoppingCart } from 'react-icons/fa';
 
 export const Header: React.FC = () => {
-  const [user, setUser] = useState(false);
-
-  const authPageLink = user ? "/user" : "/auth/login";
-
   return (
     <nav className="py-3 sm:py-4 px-4 sm:px-6 lg:px-20 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -42,11 +38,9 @@ export const Header: React.FC = () => {
             <button aria-label="Shopping Cart Button">
               <FaShoppingCart className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
             </button>
-            <Link href={authPageLink}>
-              <button aria-label="Account Button" className="mt-1">
-                <FaUser className="w-6 h-6 transition-colors duration-200 hover:fill-blue-700/90" />
-              </button>
-            </Link>
+          </div>
+          <div className="flex items-center space-x-2 md:space-x-4">
+            <UserAccountLink iconSize="6" buttonText="" />
           </div>
           <div>
             <Switch />

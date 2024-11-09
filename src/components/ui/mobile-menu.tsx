@@ -9,6 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Switch } from "@/components/ui/switch";
+import { UserAccountLink } from "../UserAccountLink/UserAccountLink";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosWoman, IoIosMan } from "react-icons/io";
 import { BsHandbagFill } from "react-icons/bs";
@@ -32,30 +33,39 @@ export const MobileMenu: React.FC = () => {
 
         <div className="flex flex-col space-y-8 mt-12">
           <Switch />
-          <div className="flex flex-row space-x-2">
-            <FaShoppingCart className="w-5 h-5" />
-            <Link href="/cart/:id" className="text-sm">My Cart</Link>
+          <div>
+            <Link href="/cart/:id" className="text-sm flex space-x-2">
+              <FaShoppingCart className="w-5 h-5" />
+              <span>My Cart</span>
+            </Link>
           </div>
-          <div className="flex flex-row space-x-2">
-            <FaUser className="w-5 h-5" />
-            <Link href="/user/:id" className="text-sm">My Account</Link>
+          <div>
+            <UserAccountLink iconSize="5" buttonText="My Account" />
           </div>
           <hr className="border-black dark:border-white"></hr>
           <div className="flex flex-row space-x-2">
-            <IoIosWoman className="w-5 h-5" />
-            <Link href="/women-products" className="text-sm">Women</Link>
+            <Link href="/women-products" className="text-sm flex space-x-2">
+              <IoIosWoman className="w-5 h-5" />
+              <span>Women</span>
+            </Link>
           </div>
-          <div className="flex flex-row space-x-2">
-            <IoIosMan className="w-5 h-5" />
-            <Link href="/men-products" className="text-sm">Men</Link>
+          <div className="mr-1">
+            <Link href="/men-products" className="text-sm flex space-x-2">
+              <IoIosMan className="w-5 h-5" />
+              <span>Men</span>
+            </Link>
           </div>
-          <div className="flex flex-row space-x-2">
-            <BsHandbagFill className="w-5 h-5" />
-            <Link href="/accessories" className="text-sm">Accessories</Link>
+          <div>
+            <Link href="/accessories" className="text-sm flex space-x-2">
+              <BsHandbagFill className="w-5 h-5" />
+              <span>Accessories</span>
+            </Link>
           </div>
-          <div className="flex flex-row space-x-2">
-            <MdDiscount className="w-5 h-5" />
-            <Link href="/sales" className="text-sm">Sales</Link>
+          <div>
+            <Link href="/sales" className="text-sm flex space-x-2">
+              <MdDiscount className="w-5 h-5" />
+              <span>Sales</span>
+            </Link>
           </div>
         </div>
       </SheetContent>
