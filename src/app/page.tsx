@@ -1,13 +1,11 @@
-"use client";
-
 import React, { Suspense } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { CardStack } from "@/components/ui/card-stack";
-import { ProductCard } from './components/ProductCard/ProductCard';
+import { ProductCard } from '../components/ProductCard/ProductCard';
 import { Button } from "@/components/ui/button"
-import { Footer } from "./components/Footer/Footer";
+import { Footer } from "../components/Footer/Footer";
 import { Spinner } from "@/components/ui/spinner";
 import { BrandHighlightProps } from "../types/types";
 import { testimonials } from "@/data/testimonials";
@@ -24,7 +22,7 @@ import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
 const BrandHighlight = dynamic<BrandHighlightProps>(
-  () => import("./components/BrandHighlight/BrandHighlight").then((mod) => ({
+  () => import("../components/BrandHighlight/BrandHighlight").then((mod) => ({
     default: mod.BrandHighlight
   })),
 );

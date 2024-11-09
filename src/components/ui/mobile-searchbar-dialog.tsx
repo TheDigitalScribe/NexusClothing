@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { SearchBar } from "@/app/components/SearchBar/SearchBar";
+import { SearchBar } from "@/components/SearchBar/SearchBar";
 import { IoSearch } from "react-icons/io5";
 
 export const MobileSearchBarDialog = () => {
