@@ -14,7 +14,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosWoman, IoIosMan } from "react-icons/io";
 import { BsHandbagFill } from "react-icons/bs";
 import { MdDiscount } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 export const MobileMenu: React.FC = () => {

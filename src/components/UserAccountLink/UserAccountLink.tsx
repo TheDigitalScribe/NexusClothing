@@ -21,7 +21,7 @@ export const UserAccountLink: React.FC<UserAccountLinkProps> = ({ iconSize, butt
   return (
     <>
       <Link href={authPageLink} className="text-sm">
-        <button aria-label="Account Button" className="flex space-x-2">
+        <button aria-label="My Account Button" className="flex space-x-2">
           <FaUser className={`w-${iconSize} h-${iconSize} transition-colors duration-200 hover:fill-blue-700/90`} />
           <span>{buttonText}</span>
         </button>

@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
   email: z
@@ -26,17 +25,20 @@ const formSchema = z.object({
     .toLowerCase(),
   password: z
     .string()
-    .min(1, "Password is required"),
-  rememberMe: z.boolean().optional().default(false),
+    .min(1, "Password is required")
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number")
+    .regex(/[\W_]/, "Password must contain at least one special character")
 });
 
-export function LoginForm() {
+export function SignUpForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
-      rememberMe: false,
     },
   });
 
@@ -71,27 +73,6 @@ export function LoginForm() {
                 <Input type="password" placeholder="********" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="rememberMe"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-              <div className="space-y-1 leading-none">
-                <FormLabel>Remember me</FormLabel>
-                <FormDescription>
-                  Stay signed in on this device
-                </FormDescription>
-              </div>
             </FormItem>
           )}
         />
