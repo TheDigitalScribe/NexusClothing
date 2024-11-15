@@ -1,4 +1,6 @@
-import React, { Suspense } from 'react'
+import React, { Suspense } from 'react';
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./api/auth/[...nextauth]/route"
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -27,7 +29,10 @@ const BrandHighlight = dynamic<BrandHighlightProps>(
   })),
 );
 
-const LandingPage: React.FC = () => {
+const LandingPage: React.FC = async () => {
+  const session = await getServerSession(authOptions);
+  const userName = session?.user?.name || "Guest";
+
   return (
     <>
       {/* Hero Section */}
@@ -42,7 +47,17 @@ const LandingPage: React.FC = () => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl lead">Elevate Your <span className="text-blue-600">Style</span>, Express Your <span className="text-blue-600 leading-relaxed">Essence</span></h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl lead">
+            {session ? (
+              <>
+                Welcome, <span className="text-blue-500">{userName}</span>
+              </>
+            ) : (
+              <>
+                Elevate Your <span className="text-blue-600">Style</span>, Express Your <span className="text-blue-600 leading-relaxed">Essence</span>
+              </>
+            )}
+          </h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl font-thin text-white mb-8 sm:mb-12 max-w-2xl leading-relaxed">Discover clothing that speaks your language, from casual chic to bold statements</p>
           <Link href="/products">
             <Button icon={<PiCoatHanger className="h-5 w-5 mt-0.5" />} buttonText="Explore Collection" ariaLabel="Explore Collection Button" />

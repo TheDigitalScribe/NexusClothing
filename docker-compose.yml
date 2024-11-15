@@ -45,11 +45,14 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - 5050:80
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     networks: 
       - nexus_network
 
 volumes:
   postgres_data:
+  pgadmin_data:
 
 networks:
   nexus_network:
