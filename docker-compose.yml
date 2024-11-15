@@ -39,7 +39,7 @@ services:
 
   pgadmin:
     container_name: nexus_pgadmin
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.13
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}

@@ -3,6 +3,7 @@ import "./globals.css";
 import { openSans } from "./fonts";
 import { Header } from "../components/Header/Header";
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthProvider } from "@/app/auth/Provider";
 
 export const metadata: Metadata = {
   title: "Nexus Clothing",
@@ -17,17 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`antiaiased ${openSans.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="flex flex-col">
-            {children}
-          </main>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main className="flex flex-col">
+              {children}
+            </main>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html >
   );
