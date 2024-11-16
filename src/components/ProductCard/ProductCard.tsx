@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Button/Button";
 import { ProductDisplayProps } from "@/types/types";
 import { FaStar, FaEye } from "react-icons/fa";
 

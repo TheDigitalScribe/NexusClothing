@@ -6,7 +6,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { CardStack } from "@/components/ui/card-stack";
 import { ProductCard } from '../components/ProductCard/ProductCard';
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/Button/Button";
 import { Footer } from "../components/Footer/Footer";
 import { Spinner } from "@/components/ui/spinner";
 import { BrandHighlightProps } from "../types/types";
@@ -59,7 +59,7 @@ const LandingPage: React.FC = async () => {
             )}
           </h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl font-thin text-white mb-8 sm:mb-12 max-w-2xl leading-relaxed">Discover clothing that speaks your language, from casual chic to bold statements</p>
-          <Link href="/products">
+          <Link href="/explore-collection">
             <Button icon={<PiCoatHanger className="h-5 w-5 mt-0.5" />} buttonText="Explore Collection" ariaLabel="Explore Collection Button" />
           </Link>
         </div>

@@ -24,6 +24,7 @@ export const authOptions: NextAuthOptions = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: "jwt"
@@ -32,7 +33,6 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       try {
         if (user) {
-          token.id = user.id;
           token.name = user.name;
         }
         return token;
@@ -45,8 +45,8 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       try {
         if (session.user) {
-          session.user.id = token.id as string;
-          session.user.name = token.name || null;
+          session.user.id = token.sub as string;
+          session.user.name = token.name;
         }
         return session;
       } catch (error) {
