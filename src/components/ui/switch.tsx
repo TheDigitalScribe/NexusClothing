@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import * as SwitchPrimitives from "@radix-ui/react-switch"
+import { Spinner } from "./spinner"
 import { useTheme } from 'next-themes'
 import { FiSun } from "react-icons/fi"
 import { FaMoon } from "react-icons/fa6"
@@ -22,7 +23,9 @@ export const Switch = React.forwardRef<
   if (!mounted) {
     return (
       <div className="w-11 h-6 bg-neutral-200 rounded-full">
-        <div className="w-5 h-5 rounded-full bg-white" />
+        <div className="w-5 h-5 rounded-full bg-white">
+          <Spinner size={"small"} className="text-black" />
+        </div>
       </div>
     )
   }

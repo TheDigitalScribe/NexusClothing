@@ -25,6 +25,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt"
+  },
   callbacks: {
     async jwt({ token, user }) {
       try {
@@ -51,10 +54,7 @@ export const authOptions: NextAuthOptions = {
         throw error;
       }
     },
-  },
-  session: {
-    strategy: "jwt"
-  },
+  }
 };
 
 const handler = NextAuth(authOptions);

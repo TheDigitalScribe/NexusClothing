@@ -1,7 +1,5 @@
 import React from 'react'
 import { useSession } from 'next-auth/react';
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Link from 'next/link';
 import { Spinner } from '@/components/ui/spinner';
 import { MdLogin } from "react-icons/md";
