@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./api/auth/[...nextauth]/route"
+import { authOptions } from "@/lib/auth";
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';

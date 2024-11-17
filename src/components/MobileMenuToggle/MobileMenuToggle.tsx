@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { UserAccountLink } from '../UserAccountLink/UserAccountLink';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { IoIosMenu } from "react-icons/io";
@@ -24,7 +25,7 @@ export const MobileMenuToggle: React.FC = () => {
           <Link href="/sales" className="block py-2 px-4 text-sm">Sales</Link>
           <br></br>
           <Link href="/cart" className="block py-2 px-4 text-sm">My Cart</Link>
-          <Link href="/account" className="block py-2 px-4 text-sm">My Account</Link>
+          <UserAccountLink iconSize="6" buttonText="My Account" />
           <div className="py-2 px-4 flex space-x-2">
             <span className="text-sm">Theme: </span>
           </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const UserAccountPage = ({ params }: { params: { id: string } }) => {
-  const userId = params.id;
+const UserAccountPage = () => {
   return (
     <div>
       <button>Sign Out</button>
